@@ -43,7 +43,7 @@ export default function RootLayout({
             <div className="w-8 h-8 bg-black flex items-center justify-center">
               <span className="text-white font-bold text-xl">T</span>
             </div>
-            <span className="text-xl font-bold text-black">Tenx</span>
+            <span className="text-2xl font-bold text-black">Tenx</span>
             <button 
               className="ml-auto lg:hidden p-2 hover:bg-gray-100 rounded"
             //   onClick={toggleSidebar}
