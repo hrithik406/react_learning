@@ -23,7 +23,7 @@ export default function RootLayout({
 
 {
   return (
-    <section className="grid grid-cols-[1fr_5fr] max-lg:grid-cols-[0_6fr] w-full h-full min-h-screen duration-100 ease-in-out">
+    <section className="font-outfit grid grid-cols-[1fr_5fr] max-lg:grid-cols-[0_6fr] w-full h-full min-h-screen duration-100 ease-in-out">
      <div className="flex flex-col lg:flex-row h-screen bg-gray-50 relative">
       {/* Overlay for mobile */}
       <div 
