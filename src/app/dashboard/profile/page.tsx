@@ -34,7 +34,15 @@ export default function ProfilePage() {
         }
     ];
 
-    const workExperience = [
+    type WorkExperienceType = {
+        company: string;
+        role: string;
+        duration: string;
+        description: string;
+        icon: string;
+    }
+
+    const workExperience: WorkExperienceType[] = [
         {
             company: 'TechCorp Industries',
             role: 'Senior Product Manager',
@@ -86,152 +94,208 @@ export default function ProfilePage() {
         }
     ];
 
+    const ExperienceCard = ({ experience }: { experience: WorkExperienceType }) => (<div
+        className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
+    >
+        <div className="flex items-start justify-between mb-4">
+            <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
+            <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
+                {experience.duration}
+            </span>
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            {experience.role}
+        </h3>
+        <p className="text-lg text-gray-700 mb-4 font-semibold">
+            {experience.company}
+        </p>
+        <p className="text-gray-600 dark:text-gray-400">
+            {experience.description}
+        </p>
+    </div>)
+
     return (
-        <div className="flex h-screen bg-slate-100">
+        <div className="flex min-h-screen bg-slate-100">
             {/* Main Content */}
-            <div className="flex-1 flex flex-col overflow-y-auto">
-                <header className=" flex justify-between m-4 md:mb-8">
-                    <h1 className=" flex text-4xl md:text-5xl lg:text-5xl font-bold text-black">
-                        Profile Page
-                    </h1>
-                    <div className="relative flex-1 mx-5 mt-1">
-                        <span className="absolute w-4.5 left-3.5 top-1/2 transform -translate-y-1/2 text-gray-400"><img src="/search.png" alt="" /></span>
-                        <input
-                            type="text"
-                            placeholder="Search ....."
-                            className="w-full bg-white pl-10 pr-4 py-2 text-sm text-black md:text-base border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                        />
-                        <span className="hidden md:block absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs">⌘  K
-                        </span>
-                    </div>
-                    <div className="flex items-center space-x-2 md:space-x-2 mr-1">
-                        <HeaderButton className="hidden md:block" iconSrc="/search.png" />
-                        <HeaderButton className="hidden md:block" iconSrc="/bolts.png" />
-                        <HeaderButton iconSrc="/bells.png" />
-                        <div className="flex items-center bg-white border border-gray-200 rounded-3xl p-1 pr-1 space-x-2 hover:cursor-pointer">
-                            <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                            <span className="font-medium text-black hidden sm:block">Warren</span>
-                            <span className="text-black sm:block">▼</span>
-                        </div>
-                    </div>
-                </header>
-                <section className="flex px-4 mt-6">
-                    <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
-                        <div className="lg:col-span-2">
-                            <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 ">
-                                <div className="mb-6">
-                                    <h2 className="text-2xl md:text-3xl font-bold text-black  mb-2">
-                                        Profile
-                                    </h2>
-                                    <div className="w-22 h-1 bg-yellow-400 rounded-full"></div>
-                                </div>
-                                <div className="space-y-4 text-gray-600">
-                                    <p>
-                                        <span className="font-semibold text-black ">Hi, I'm Sarah Johnson</span> - a passionate product manager with over 8 years of experience in building and scaling digital products.
-                                    </p>
-                                    <p>
-                                        I specialize in turning complex business challenges into elegant solutions that drive growth and user satisfaction. My approach combines data-driven decision making with a deep understanding of user needs.
-                                    </p>
-                                    <p>
-                                        Throughout my career, I've led cross-functional teams, launched successful products, and contributed to significant revenue growth across multiple organizations.
-                                    </p>
-                                </div>
-                                <div className="mt-6 space-y-3">
-                                    <div className="flex items-center space-x-3 text-sm md:text-base">
-                                        <span className="text-xl w-4"><img src="/location.png" alt="" /></span>
-                                        <span className="text-gray-600">San Francisco, CA</span>
+            <div className="flex-1 flex flex-col bg-transparent">
+                <main className="flex-1">
+                    <section className="flex px-4">
+                        <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
+                            <div className="lg:col-span-2">
+                                <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 ">
+                                    <div className="mb-6">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-black  mb-2">
+                                            Profile
+                                        </h2>
+                                        <div className="w-22 h-1 bg-yellow-400 rounded-full"></div>
                                     </div>
-                                    <div className="flex items-center space-x-3 text-sm md:text-base">
-                                        <span className="text-xl w-4"><img src="/mail.png" alt="" /></span>
-                                        <span className="text-gray-600">sarah.johnson@email.com</span>
+                                    <div className="space-y-4 text-gray-600">
+                                        <p>
+                                            <span className="font-semibold text-black ">Hi, I'm Sarah Johnson</span> - a passionate product manager with over 8 years of experience in building and scaling digital products.
+                                        </p>
+                                        <p>
+                                            I specialize in turning complex business challenges into elegant solutions that drive growth and user satisfaction. My approach combines data-driven decision making with a deep understanding of user needs.
+                                        </p>
+                                        <p>
+                                            Throughout my career, I've led cross-functional teams, launched successful products, and contributed to significant revenue growth across multiple organizations.
+                                        </p>
                                     </div>
-                                    <div className="flex items-center space-x-3 text-sm md:text-base">
-                                        <span className="text-xl w-4"><img src="/suitcase.png" alt="" /></span>
-                                        <span className="text-gray-600">Senior Product Manager</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right - Image Space (2/3) */}
-                        <div className="lg:col-span-1">
-                            <div className="bg-linear-to-br from-yellow-400 via-orange-400 to-pink-500 rounded-xl min-h-[400px] md:min-h-full lg:min-h-full flex items-center justify-center relative overflow-hidden">
-                                {/* Image Placeholder - Replace with actual image */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="text-center">
-                                        <div className="w-32 h-32 md:w-48 md:h-48 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
-                                            <span className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white">SJ</span>
+                                    <div className="mt-6 space-y-3">
+                                        <div className="flex items-center space-x-3 text-sm md:text-base">
+                                            <span className="text-xl w-4"><img src="/location.png" alt="" /></span>
+                                            <span className="text-gray-600">San Francisco, CA</span>
                                         </div>
-                                        <p className="text-white text-lg md:text-xl font-semibold">Profile Image Space</p>
+                                        <div className="flex items-center space-x-3 text-sm md:text-base">
+                                            <span className="text-xl w-4"><img src="/mail.png" alt="" /></span>
+                                            <span className="text-gray-600">sarah.johnson@email.com</span>
+                                        </div>
+                                        <div className="flex items-center space-x-3 text-sm md:text-base">
+                                            <span className="text-xl w-4"><img src="/suitcase.png" alt="" /></span>
+                                            <span className="text-gray-600">Senior Product Manager</span>
+                                        </div>
                                     </div>
                                 </div>
-                                {/* You can replace the above div with: */}
-                                {/* <img src="your-image-url.jpg" alt="Profile" className="w-full h-full object-cover" /> */}
+                            </div>
+
+                            {/* Right - Image Space (2/3) */}
+                            <div className="lg:col-span-1">
+                                <div className="bg-linear-to-br from-yellow-400 via-orange-400 to-pink-500 rounded-xl min-h-[400px] md:min-h-full lg:min-h-full flex items-center justify-center relative overflow-hidden">
+                                    {/* Image Placeholder - Replace with actual image */}
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="text-center">
+                                            <div className="w-32 h-32 md:w-48 md:h-48 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+                                                <span className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white">SJ</span>
+                                            </div>
+                                            <p className="text-white text-lg md:text-xl font-semibold">Profile Image Space</p>
+                                        </div>
+                                    </div>
+                                    {/* You can replace the above div with: */}
+                                    {/* <img src="your-image-url.jpg" alt="Profile" className="w-full h-full object-cover" /> */}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section className="my-10 md:mb-12">
-                    <div className="flex flex-col relative mb-12">
-                        <h2 className="text-3xl mx-auto md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                            Core Values
-                        </h2>
-                        <div className="w-24 h-1 mx-auto bg-yellow-400 rounded-full"></div>
-                    </div>
+                    <section className="mt-10 md:mb-18">
+                        <div className="flex flex-col relative mb-12">
+                            <h2 className="text-3xl mx-auto md:text-4xl lg:text-5xl font-bold text-black mb-4">
+                                Company Performance
+                            </h2>
+                            <div className="w-40 h-1 mx-auto bg-yellow-400 rounded-full"></div>
+                            <p className="text-lg mx-auto text-gray-600 mt-4">
+                                Key achievements and metrics from previous roles
+                            </p>
+                        </div>
 
-                    <div className="grid sm:grid-cols-2 m-4 lg:grid-cols-3 gap-6 md:gap-8">
-                        {coreValues.map((value, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
-                            >
-                                <div className="text-4xl md:text-5xl w-8 mb-4"><img src={value.icon} alt="" /></div>
-                                <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
-                                    {value.title}
-                                </h3>
-                                <p className="text-gray-600">
-                                    {value.description}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                <section className="mb-10 md:mb-12">
-                    <div className="flex flex-col relative mb-10">
-                        <h2 className="text-3xl mx-auto md:text-4xl lg:text-5xl font-bold text-black mb-4">
-                            Work Experience
-                        </h2>
-                        <div className="w-30 h-1 mx-auto bg-yellow-400 rounded-full"></div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 mx-4 gap-6 md:gap-8">
-                        {workExperience.map((experience, index) => (
-                            <div
-                                key={index}
-                                className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
-                            >
-                                <div className="flex items-start justify-between mb-4">
-                                    <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
-                                    <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
-                                        {experience.duration}
-                                    </span>
+                        <div className="space-y-8 mx-4">
+                            {companyPerformance.map((company, index) => (
+                                <div
+                                    key={index}
+                                    className="flex flex-col bg-white rounded-xl p-3 md:p-6 border border-gray-200"
+                                >
+                                    <h3 className="text-2xl md:text-3xl font-bold text-black mx-auto mb-8">
+                                        {company.company}
+                                    </h3>
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                        {company.metrics.map((metric, idx) => (
+                                            <div key={idx} className="text-center">
+                                                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 ${metric.color}`}>
+                                                    {metric.value}
+                                                </div>
+                                                <div className="text-sm md:text-base text-gray-600">
+                                                    {metric.label}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                                    {experience.role}
-                                </h3>
-                                <p className="text-lg text-gray-700 mb-4 font-semibold">
-                                    {experience.company}
-                                </p>
-                                <p className="text-gray-600 dark:text-gray-400">
-                                    {experience.description}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
+                            ))}
+                        </div>
+                    </section>
 
+                    <section className="mb-10 md:mb-12">
+                        <div className="flex flex-col relative mb-12">
+                            <h2 className="text-3xl mx-auto md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                                Core Values
+                            </h2>
+                            <div className="w-24 h-1 mx-auto bg-yellow-400 rounded-full"></div>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 m-4 lg:grid-cols-3 gap-6 md:gap-8">
+                            {coreValues.map((value, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
+                                >
+                                    <div className="text-4xl md:text-5xl w-8 mb-4"><img src={value.icon} alt="" /></div>
+                                    <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
+                                        {value.title}
+                                    </h3>
+                                    <p className="text-gray-600">
+                                        {value.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="mb-10 md:mb-12">
+                        <div className="flex flex-col relative mb-10">
+                            <h2 className="text-3xl mx-auto md:text-4xl lg:text-5xl font-bold text-black mb-4">
+                                Work Experience
+                            </h2>
+                            <div className="w-30 h-1 mx-auto bg-yellow-400 rounded-full"></div>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 mx-4 gap-6 md:gap-8">
+                            {workExperience.map((experience, index) => (
+                                <ExperienceCard key={index} experience={experience} />
+                            ))}
+                        </div>
+                    </section>
+
+
+
+                    <section>
+                        <div className="bg-linear-to-r from-yellow-400 to-orange-500 rounded-2xl p-8 md:p-12 lg:p-12 text-center mx-4">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white ">
+                                Let's Work Together
+                            </h2>
+                            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                <button className="bg-white hover:bg-gray-900 text-gray-900 hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-300 w-full sm:w-auto hover:cursor-pointer">
+                                    Download Resume
+                                </button>
+                                <button className="bg-gray-900 hover:bg-white text-white hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-colors w-full sm:w-auto hover:cursor-pointer">
+                                    Get In Touch
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="bg-white border-t border-gray-200 py-6 md:py-6 mt-8">
+                        <div className="max-w-7xl mx-auto px-4 md:px-8">
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                                <p className="text-gray-700 mx-auto text-center md:text-left">
+                                    © 2025 Sarah Johnson. All rights reserved.
+                                </p>
+                                <div className="flex items-center space-x-6">
+                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
+                                        LinkedIn
+                                    </a>
+                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
+                                        Twitter
+                                    </a>
+                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
             </div>
         </div>
     )

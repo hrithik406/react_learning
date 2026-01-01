@@ -99,50 +99,12 @@ export default function LeadsContactsPage() {
 
   return (
 
-    <div className=" flex h-screen bg-slate-100">
+    <div className=" flex min-h-screen">
       {/* {Temp()} */}
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <header className="border-b border-gray-200 px-2 py-3 md:px-6  md:py-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3 flex-1 max-w-xl">
-              <button
-                className="lg:hidden p-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer"
-              // onClick={toggleSidebar}
-              >
-                <span className="text-xl text-black">☰</span>
-              </button>
-              <div className="relative flex-1 -ml-2">
-                <span className="absolute w-4.5 left-3.5 top-1/2 transform -translate-y-1/2 text-gray-400"><img src="/search.png" alt="" /></span>
-                <input
-                  type="text"
-                  placeholder="Search ....."
-                  className="w-full bg-white pl-10 pr-4 py-2 text-sm text-black md:text-base border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                />
-                <span className="hidden md:block absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs">⌘  K
-                </span>
-              </div>
-            </div>
-
-            <React.Fragment>
-
-            </React.Fragment>
-            <div className="flex items-center space-x-2 md:space-x-2 mr-1">
-              <HeaderButton className="hidden md:block" iconSrc="/search.png" />
-              <HeaderButton className="hidden md:block" iconSrc="/bolts.png" />
-              <HeaderButton iconSrc="/bells.png" />
-              <div className="flex items-center bg-white border border-gray-200 rounded-3xl p-1 pr-1 space-x-2 hover:cursor-pointer">
-                <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                <span className="font-medium text-black hidden sm:block">Warren</span>
-                <span className="text-black sm:block">▼</span>
-              </div>
-            </div>
-          </div>
-        </header>
-
+      <div className="flex-1 flex flex-col bg-transparent">
         {/* Page Content */}
-        <main className="flex-1 overflow-auto px-4 md:px-4 lg:px-4 py-4 md:py-6">
+        <main className="flex-1 px-4 md:px-4 lg:px-4 pb-4 md:pb-6">
           {/* Page Title */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>

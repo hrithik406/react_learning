@@ -8,7 +8,7 @@ export default function LeadsBtn({ children, className }: { className?: string, 
     )
 }
 
-function somwthing({ name, age }: { name: string, age: null }) {
-    console.log(name)
-    return null
-}
+// function somwthing({ name, age }: { name: string, age: null }) {
+//     console.log(name)
+//     return null
+// }
