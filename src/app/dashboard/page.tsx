@@ -126,7 +126,7 @@ export default function LeadsContactsPage() {
                   <input
                     type="text"
                     placeholder="Search leads..."
-                    className="w-full text-black lg:w-80 xl:w-140 pl-10  py-3 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    className="w-full text-black lg:w-80 xl:w-120 pl-10  py-3 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   />
                 </div>
               </div>

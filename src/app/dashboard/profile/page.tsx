@@ -1,7 +1,11 @@
-import HeaderButton from "../components/HeaderButton";
-
 export default function ProfilePage() {
-    const coreValues = [
+    type coreValuesType = {
+        icon: string;
+        title: string;
+        description: string;
+    }
+
+    const coreValues: coreValuesType[] = [
         {
             icon: '/deals.png',
             title: 'Goal Oriented',
@@ -33,6 +37,21 @@ export default function ProfilePage() {
             description: 'Committed to personal and professional development.'
         }
     ];
+
+    const CoreValuesCard = ({ core }: { core: coreValuesType }) => (
+        <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
+        >
+            <div className="text-4xl md:text-5xl w-8 mb-4"><img src={core.icon} alt="" /></div>
+            <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
+                {core.title}
+            </h3>
+            <p className="text-gray-600">
+                {core.description}
+            </p>
+        </div>
+    )
+
+
 
     type WorkExperienceType = {
         company: string;
@@ -73,6 +92,26 @@ export default function ProfilePage() {
         }
     ];
 
+    const ExperienceCard = ({ experience }: { experience: WorkExperienceType }) => (<div
+        className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
+    >
+        <div className="flex items-start justify-between mb-4">
+            <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
+            <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
+                {experience.duration}
+            </span>
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            {experience.role}
+        </h3>
+        <p className="text-lg text-gray-700 mb-4 font-semibold">
+            {experience.company}
+        </p>
+        <p className="text-gray-600 dark:text-gray-400">
+            {experience.description}
+        </p>
+    </div>)
+
     const companyPerformance = [
         {
             company: 'TechCorp Industries',
@@ -94,31 +133,12 @@ export default function ProfilePage() {
         }
     ];
 
-    const ExperienceCard = ({ experience }: { experience: WorkExperienceType }) => (<div
-        className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
-    >
-        <div className="flex items-start justify-between mb-4">
-            <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
-            <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
-                {experience.duration}
-            </span>
-        </div>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-            {experience.role}
-        </h3>
-        <p className="text-lg text-gray-700 mb-4 font-semibold">
-            {experience.company}
-        </p>
-        <p className="text-gray-600 dark:text-gray-400">
-            {experience.description}
-        </p>
-    </div>)
 
     return (
         <div className="flex min-h-screen bg-slate-100">
             {/* Main Content */}
             <div className="flex-1 flex flex-col bg-transparent">
-                <main className="flex-1">
+                <main className="flex-1 mb-4">
                     <section className="flex px-4">
                         <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
                             <div className="lg:col-span-2">
@@ -222,19 +242,8 @@ export default function ProfilePage() {
                         </div>
 
                         <div className="grid sm:grid-cols-2 m-4 lg:grid-cols-3 gap-6 md:gap-8">
-                            {coreValues.map((value, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
-                                >
-                                    <div className="text-4xl md:text-5xl w-8 mb-4"><img src={value.icon} alt="" /></div>
-                                    <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
-                                        {value.title}
-                                    </h3>
-                                    <p className="text-gray-600">
-                                        {value.description}
-                                    </p>
-                                </div>
+                            {coreValues.map((core, i) => (
+                                <CoreValuesCard key={i} core={core} />
                             ))}
                         </div>
                     </section>
@@ -254,10 +263,8 @@ export default function ProfilePage() {
                         </div>
                     </section>
 
-
-
                     <section>
-                        <div className="bg-linear-to-r from-yellow-400 to-orange-500 rounded-2xl p-8 md:p-12 lg:p-12 text-center mx-4">
+                        <div className="bg-linear-to-r from-yellow-400 to-orange-500 rounded-2xl p-8 md:p-12 lg:p-12 text-center m-4">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white ">
                                 Let's Work Together
                             </h2>
@@ -274,27 +281,6 @@ export default function ProfilePage() {
                             </div>
                         </div>
                     </section>
-
-                    <footer className="bg-white border-t border-gray-200 py-6 md:py-6 mt-8">
-                        <div className="max-w-7xl mx-auto px-4 md:px-8">
-                            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                                <p className="text-gray-700 mx-auto text-center md:text-left">
-                                    © 2025 Sarah Johnson. All rights reserved.
-                                </p>
-                                <div className="flex items-center space-x-6">
-                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
-                                        LinkedIn
-                                    </a>
-                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
-                                        Twitter
-                                    </a>
-                                    <a href="#" className="text-gray-700 hover:text-gray-400 transition-colors">
-                                        GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
                 </main>
             </div>
         </div>

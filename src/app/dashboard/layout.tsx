@@ -2,27 +2,18 @@ import { Children } from "react";
 import Link from 'next/link'
 import NavBtn from "./components/NavBtn";
 import HeaderButton from "./components/HeaderButton";
+import SocialBtn from "./components/socialBtn";
 
-//    const toggleSidebar = () => {
-//     const sidebar = document.getElementById('mobile-sidebar');
-//     const overlay = document.getElementById('overlay');
-
-//     if (sidebar.classList.contains('-translate-x-full')) {
-//       sidebar.classList.remove('-translate-x-full');
-//       overlay.classList.remove('hidden');
-//     } else {
-//       sidebar.classList.add('-translate-x-full');
-//       overlay.classList.add('hidden');
-//     }
-//   };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
-    <section className="font-outfit grid grid-cols-[1fr_5fr] max-lg:grid-cols-[0_6fr] w-full h-full min-h-screen duration-100 ease-in-outrelative">
+    <section className="font-outfit grid grid-cols-[1fr_7fr] max-lg:grid-cols-[0_7fr] w-full h-full min-h-screen duration-100 ease-in-out relative">
       <div className="flex flex-col lg:flex-row h-screen bg-gray-50 sticky top-0">
         {/* Overlay for mobile */}
         <div
@@ -34,7 +25,7 @@ export default function RootLayout({
         {/* Sidebar */}
         <div
           id="mobile-sidebar"
-          className="fixed top-0 lg:relative inset-y-0 left-0 w-64 xl:w-72 2xl:w-80 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 flex flex-col z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out"
+          className="fixed top-0 lg:relative inset-y-0 left-0 w-64 xl:w-72 2xl:w-72 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 flex flex-col z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out"
         >
           {/* Logo */}
           <div className="p-4 md:p-6 border-b border-gray-200">
@@ -60,10 +51,12 @@ export default function RootLayout({
               <NavBtn iconsrc="/deals.png" navName="Deals Pipeline" linked="#"></NavBtn>
               <NavBtn iconsrc="/analytics.png" navName="Analytics" linked="#"></NavBtn>
               <NavBtn iconsrc="/list-check.svg" navName="Tasks & Activities" linked="#"></NavBtn>
-              <NavBtn iconsrc="/message.png" navName="Messages" linked="#"></NavBtn>
-              <NavBtn iconsrc="/settings.png" navName="Settings" linked="#"></NavBtn>
+              <NavBtn iconsrc="/message.png" navName="Contact Us" linked="#"></NavBtn>
+              <NavBtn iconsrc="/settings.png" navName="About Us" linked="/dashboard/about"></NavBtn>
             </div>
           </nav>
+          {/* NavList.map((value, i)=>(
+          <NavBtn key={i} value={} />)) */}
 
           {/* Upgrade Card */}
           <div className="p-4">
@@ -77,7 +70,7 @@ export default function RootLayout({
           </div>
 
           {/* Theme Toggle */}
-          <div className=" flex justify-center p-4 border-t border-gray-200">
+          <div className=" flex justify-center px-4 py-1.5 border-t border-gray-200">
             <div className="flex items-center bg-gray-200 p-2 border rounded-full space-x-2 text-xs xl:text-sm">
               <button className="flex items-center text-black space-x-1 px-3 py-1.5 bg-gray-50 hover:cursor-pointer rounded-2xl">
                 <span className="w-4 "><img src="/sun.png" alt="" /></span>
@@ -91,7 +84,7 @@ export default function RootLayout({
           </div>
         </div>
       </div>
-
+      {/* Header */}
       <div className="flex flex-col relative bg-slate-100">
         <div className="bg-linear-to-b from-slate-100 via-slate-100 to-transparent w-full h-20 sticky top-0 z-20">
           <header className="px-2 py-3 md:px-6 md:pt-4">
@@ -127,7 +120,30 @@ export default function RootLayout({
             </div>
           </header>
         </div>
+
         <div>{children}</div>
+        {/* Footer */}
+        <footer className="bg-white border-t border-gray-200 py-2.75 max-md:py-3 ">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-md:gap-0">
+              <div className="flex relative gap-x-2 mb-2">
+              <div className="w-8 h-8 bg-black flex items-center justify-center">
+                <span className="text-white font-bold text-xl">T</span>
+              </div>
+              <span className="text-2xl font-bold text-black ">Tenx</span>
+              </div>
+              <p className="text-gray-700 mx-auto text-center md:text-left mb-2">
+                © 2025 Sarah Johnson. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-5">
+                <SocialBtn iconSrc="/linkedin.png"></SocialBtn>
+                <SocialBtn iconSrc="/instagram.png"></SocialBtn>
+                <SocialBtn iconSrc="/twitter.png"></SocialBtn>
+                <SocialBtn iconSrc="/github.png"></SocialBtn>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
 
 
