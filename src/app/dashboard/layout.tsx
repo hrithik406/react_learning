@@ -95,7 +95,7 @@ export default function RootLayout({
           <nav className="flex flex-1 p-4 overflow-y-auto">
             <div className="space-y-1 w-full">
               {NavList.map((NAV, i) => (
-                <NavBtn key={i} {...NAV} />))}
+                <NavListCard key={i} {...NAV} />))}
             </div>
           </nav>
 
