@@ -1,168 +1,174 @@
-export default function ProfilePage() {
-    type coreValuesType = {
-        icon: string;
-        title: string;
-        description: string;
+type coreValuesType = {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+const coreValues: coreValuesType[] = [
+    {
+        icon: '/deals.png',
+        title: 'Goal Oriented',
+        description: 'Setting clear objectives and consistently achieving measurable results.'
+    },
+    {
+        icon: '/bulb.png',
+        title: 'Creative Thinker',
+        description: 'Bringing innovative solutions to complex business challenges.'
+    },
+    {
+        icon: '/handshake.png',
+        title: 'Team Player',
+        description: 'Collaborating effectively with cross-functional teams.'
+    },
+    {
+        icon: '/analytics.png',
+        title: 'Growth Mindset',
+        description: 'Continuously learning and adapting to new technologies.'
+    },
+    {
+        icon: '/bolts.png',
+        title: 'Fast Executor',
+        description: 'Delivering high-quality work with efficiency and speed.'
+    },
+    {
+        icon: '/degree.png',
+        title: 'Lifelong Learner',
+        description: 'Committed to personal and professional development.'
     }
+];
 
-    const coreValues: coreValuesType[] = [
-        {
-            icon: '/deals.png',
-            title: 'Goal Oriented',
-            description: 'Setting clear objectives and consistently achieving measurable results.'
-        },
-        {
-            icon: '/bulb.png',
-            title: 'Creative Thinker',
-            description: 'Bringing innovative solutions to complex business challenges.'
-        },
-        {
-            icon: '/handshake.png',
-            title: 'Team Player',
-            description: 'Collaborating effectively with cross-functional teams.'
-        },
-        {
-            icon: '/analytics.png',
-            title: 'Growth Mindset',
-            description: 'Continuously learning and adapting to new technologies.'
-        },
-        {
-            icon: '/bolts.png',
-            title: 'Fast Executor',
-            description: 'Delivering high-quality work with efficiency and speed.'
-        },
-        {
-            icon: '/degree.png',
-            title: 'Lifelong Learner',
-            description: 'Committed to personal and professional development.'
-        }
-    ];
-
-    const CoreValuesCard = ({ core }: { core: coreValuesType }) => (
-        <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
-        >
-            <div className="text-4xl md:text-5xl w-8 mb-4"><img src={core.icon} alt="" /></div>
-            <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
-                {core.title}
-            </h3>
-            <p className="text-gray-600">
-                {core.description}
-            </p>
-        </div>
-    )
-
-
-
-    type WorkExperienceType = {
-        company: string;
-        role: string;
-        duration: string;
-        description: string;
-        icon: string;
-    }
-
-    const workExperience: WorkExperienceType[] = [
-        {
-            company: 'TechCorp Industries',
-            role: 'Senior Product Manager',
-            duration: '2021 - Present',
-            description: 'Leading product strategy and execution for enterprise CRM solutions, managing cross-functional teams of 15+ members.',
-            icon: '/building.png'
-        },
-        {
-            company: 'Global Solutions Inc',
-            role: 'Product Manager',
-            duration: '2019 - 2021',
-            description: 'Developed and launched 3 major product features that increased user engagement by 45%.',
-            icon: '/globe.png'
-        },
-        {
-            company: 'StartupHub',
-            role: 'Associate Product Manager',
-            duration: '2017 - 2019',
-            description: 'Managed product roadmap and collaborated with engineering teams to deliver innovative solutions.',
-            icon: '/rocket.png'
-        },
-        {
-            company: 'Innovate Corp',
-            role: 'Business Analyst',
-            duration: '2015 - 2017',
-            description: 'Conducted market research and data analysis to inform product decisions and business strategy.',
-            icon: '/analytics.png'
-        }
-    ];
-
-    const ExperienceCard = ({ experience }: { experience: WorkExperienceType }) => (<div
-        className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
+const CoreValuesCard = ({ core }: { core: coreValuesType }) => (
+    <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-200  hover:shadow-lg transition-all hover:scale-105 duration-200"
     >
-        <div className="flex items-start justify-between mb-4">
-            <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
-            <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
-                {experience.duration}
-            </span>
-        </div>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-            {experience.role}
+        <div className="text-4xl md:text-5xl w-8 mb-4"><img src={core.icon} alt="" /></div>
+        <h3 className="text-xl md:text-2xl font-bold text-black mb-3">
+            {core.title}
         </h3>
-        <p className="text-lg text-gray-700 mb-4 font-semibold">
-            {experience.company}
+        <p className="text-gray-600">
+            {core.description}
         </p>
-        <p className="text-gray-600 dark:text-gray-400">
-            {experience.description}
-        </p>
-    </div>)
+    </div>
+)
 
-    type companyPerformanceType = {
-        companyName: string;
-        metrics: {
-            label: string;
-            value: string;
-            color: string;
-        }[];
+
+
+type WorkExperienceType = {
+    company: string;
+    role: string;
+    duration: string;
+    description: string;
+    icon: string;
+}
+
+const workExperience: WorkExperienceType[] = [
+    {
+        company: 'TechCorp Industries',
+        role: 'Senior Product Manager',
+        duration: '2021 - Present',
+        description: 'Leading product strategy and execution for enterprise CRM solutions, managing cross-functional teams of 15+ members.',
+        icon: '/building.png'
+    },
+    {
+        company: 'Global Solutions Inc',
+        role: 'Product Manager',
+        duration: '2019 - 2021',
+        description: 'Developed and launched 3 major product features that increased user engagement by 45%.',
+        icon: '/globe.png'
+    },
+    {
+        company: 'StartupHub',
+        role: 'Associate Product Manager',
+        duration: '2017 - 2019',
+        description: 'Managed product roadmap and collaborated with engineering teams to deliver innovative solutions.',
+        icon: '/rocket.png'
+    },
+    {
+        company: 'Innovate Corp',
+        role: 'Business Analyst',
+        duration: '2015 - 2017',
+        description: 'Conducted market research and data analysis to inform product decisions and business strategy.',
+        icon: '/analytics.png'
     }
+];
 
-    const companyPerformance: companyPerformanceType[] = [
-        {
-            companyName: 'TechCorp Industries',
-            metrics: [
-                { label: 'Revenue Growth', value: '150%', color: 'text-green-600 dark:text-green-400' },
-                { label: 'User Acquisition', value: '200K+', color: 'text-blue-600 dark:text-blue-400' },
-                { label: 'Customer Satisfaction', value: '98%', color: 'text-yellow-600 dark:text-yellow-400' },
-                { label: 'Market Share', value: '+25%', color: 'text-purple-600 dark:text-purple-400' }
-            ]
-        },
-        {
-            companyName: 'Global Solutions Inc',
-            metrics: [
-                { label: 'Product Launches', value: '12', color: 'text-green-600 dark:text-green-400' },
-                { label: 'Team Growth', value: '300%', color: 'text-blue-600 dark:text-blue-400' },
-                { label: 'User Engagement', value: '+45%', color: 'text-yellow-600 dark:text-yellow-400' },
-                { label: 'Revenue Impact', value: '$5M', color: 'text-purple-600 dark:text-purple-400' }
-            ]
-        }
-    ];
+const ExperienceCard = ({ experience }: { experience: WorkExperienceType }) => (<div
+    className="bg-white rounded-xl p-6 md:p-8 border border-gray-300  hover:shadow-lg transition-shadow"
+>
+    <div className="flex items-start justify-between mb-4">
+        <div className="text-4xl md:text-5xl w-8"><img src={experience.icon} alt="" /></div>
+        <span className="text-sm text-white  bg-gray-500  px-3 py-1 rounded-full">
+            {experience.duration}
+        </span>
+    </div>
+    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+        {experience.role}
+    </h3>
+    <p className="text-lg text-gray-700 mb-4 font-semibold">
+        {experience.company}
+    </p>
+    <p className="text-gray-600 dark:text-gray-400">
+        {experience.description}
+    </p>
+</div>)
 
-    const CompanyPfm = ( company: companyPerformanceType ) => (
-        <div className="flex flex-col bg-white rounded-xl p-3 md:p-6 border border-gray-200"
-        >
-            <h3 className="text-2xl md:text-3xl font-bold text-black mx-auto mb-8">
-                {company.companyName} 
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {company.metrics.map((metric, idx) => (
-                    <div key={idx} className="text-center">
-                        <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 ${metric.color}`}>
-                            {metric.value}
-                        </div>
-                        <div className="text-sm md:text-base text-gray-600">
-                            {metric.label}
-                        </div>
+type companyPerformanceType = {
+    companyName: string;
+    metrics: {
+        label: string;
+        value: string;
+        color: string;
+    }[];
+}
+
+const companyPerformance: companyPerformanceType[] = [
+    {
+        companyName: 'TechCorp Industries',
+        metrics: [
+            { label: 'Revenue Growth', value: '150%', color: 'text-green-600 dark:text-green-400' },
+            { label: 'User Acquisition', value: '200K+', color: 'text-blue-600 dark:text-blue-400' },
+            { label: 'Customer Satisfaction', value: '98%', color: 'text-yellow-600 dark:text-yellow-400' },
+            { label: 'Market Share', value: '+25%', color: 'text-purple-600 dark:text-purple-400' }
+        ]
+    },
+    {
+        companyName: 'Global Solutions Inc',
+        metrics: [
+            { label: 'Product Launches', value: '12', color: 'text-green-600 dark:text-green-400' },
+            { label: 'Team Growth', value: '300%', color: 'text-blue-600 dark:text-blue-400' },
+            { label: 'User Engagement', value: '+45%', color: 'text-yellow-600 dark:text-yellow-400' },
+            { label: 'Revenue Impact', value: '$5M', color: 'text-purple-600 dark:text-purple-400' }
+        ]
+    }
+];
+
+const CompanyPfm = ( company: companyPerformanceType ) => (
+    <div className="flex flex-col bg-white rounded-xl p-3 md:p-6 border border-gray-200"
+    >
+        <h3 className="text-2xl md:text-3xl font-bold text-black mx-auto mb-8">
+            {company.companyName} 
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {company.metrics.map((metric, idx) => (
+                <div key={idx} className="text-center">
+                    <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 ${metric.color}`}>
+                        {metric.value}
                     </div>
-                ))}
-            </div>
+                    <div className="text-sm md:text-base text-gray-600">
+                        {metric.label}
+                    </div>
+                </div>
+            ))}
         </div>
-    )
+    </div>
+)
 
+export default function ProfilePage() {
+
+    // fetch -> dog api data
+
+    // dog api data => data = dog[]
+
+    // dog[] => dog component card, dog detail showcase
 
     return (
         <div className="flex min-h-screen bg-slate-100">
